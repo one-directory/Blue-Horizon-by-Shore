@@ -8,10 +8,6 @@ export default function Footer() {
       <div className="wrap grid gap-10 md:grid-cols-3">
         <div>
           <Logo tone="light" size="lg" />
-          <p className="mt-5 max-w-xs text-[0.95rem]">
-            {site.room.count} double bedrooms near Malpe, Udupi.
-            Check-in {site.room.checkIn}, check-out {site.room.checkOut}.
-          </p>
         </div>
         <nav aria-label="Footer">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-marigold">Explore</p>
