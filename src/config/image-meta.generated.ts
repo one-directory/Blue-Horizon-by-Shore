@@ -1,0 +1,20 @@
+// AUTO-GENERATED from public/images/*.webp. Do not edit by hand.
+export const imageMeta: Record<string, { w: number; h: number; blur: string }> = {
+  "bathroom-marble": { w: 1204, h: 1600, blur: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwAwCdASoQABUAPu1mqk2ppaQiMAgBMB2JZQAAPYnv/JsgPP8wAAD+yZ5FSEBwepG8NKhpDc4Hd1FEVMWV5YB218yYPmsTwCOuG5NVt3DmufArYkidjbUgAAA=" },
+  "bathroom-tile": { w: 1204, h: 1600, blur: "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAwCdASoQABUAPu1krU6ppaSiMAgBMB2JZwAAUvnbbu87oNxgjGLQAP5VILZc5mHqTgakyc62k6eoFAco5T6JCgt4Y5P5R/PQHR0GAAA=" },
+  "bathroom-white": { w: 1204, h: 1600, blur: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACQAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JaQAAW9FBT2kl6G6AAP7ekCbKeM60PoMDpMZo/G60+fJCt4/YbKnetG0KVsFFfhLwAA==" },
+  "corridor": { w: 1204, h: 1600, blur: "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoQABUAPu1iqk2ppaQiMAgBMB2JZQC06BRq6pmYdWlgYACoHKy/CH2L+tDZQgoV/FDTuXXxinxUJdDdlD4zU53d2Z/jgW6MNBAAAA==" },
+  "corridor-2": { w: 1204, h: 1600, blur: "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JYwC06BUIM9Kcg5WNCACru+NAYPnpuiT9Uej4dGph73D1iTtiAiv+KuXUGvV15H9Ffuuvquef3gAA" },
+  "exterior-side": { w: 1204, h: 1600, blur: "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JZACw7A2Atij0Q/1z24AA/rITQMMUMm23sUonRA2RqR0UVY+Rmjj/yZwEItcrUc9sD3YC6gFvmW/bGjQxY6ZYQAA=" },
+  "hero-entrance": { w: 1445, h: 1088, blur: "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAwAA4BaJbACdAC3GtZzIGAA3QF9hodRR/xo4IohjM8u0R70BqVH5oYb5FLFORp6WwEX7zdVXBOBQAA=" },
+  "room-bright": { w: 1280, h: 960, blur: "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADwAQCdASoQAAwAA4BaJZQAAujQXVRIQ8AA/rCeenxif8paCxC3OVahtPbdLWw+EiYuQ+0g7AAAAA==" },
+  "room-corner": { w: 1280, h: 960, blur: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAAwAA4BaJQAAXQu0MFFwXQAA/t64yRlisKO/A0sCFjA6owiO8yj7rBJJFGcDC8YrSMO+oQ8AAA==" },
+  "room-crimson": { w: 1600, h: 1204, blur: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAgCdASoQAAwAA4BaJbACdADzeprEqOwAAP3SZR9eXmN9D6NMOLWKrKnZAvc+7Brn2MR4w7VguRddRYKAAA==" },
+  "room-curtain": { w: 1600, h: 1204, blur: "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoQAAwAA4BaJYgC7AEDkIpTpAAA/rQNn9F9iynbZGxwzevev0Fn3xX70WirurnXv2H97TAA" },
+  "room-door": { w: 1280, h: 960, blur: "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAwAA4BaJQAAU06EjCaAAP6xkmqnaLQdq22UU6b22wbRTtBtCU5uemmJ8CWkLcgw3uaeXJn0g0AA" },
+  "room-dresser": { w: 1600, h: 1204, blur: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAQAgCdASoQAAwAA4BaJZgCsAEPhV2RbVMQAP7qj6kUZvTAq/P1bBpTxKy19rO0gAXUzCRZh68ZHqsCaOiMAA==" },
+  "room-ruby": { w: 1280, h: 960, blur: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAwAgCdASoQAAwAA4BaJagCdAEQ4u+JxHpMAAD8+HQErLzXh8yvyHBHlmmRJ9Vmykdp3jmJsdDYHXZGxDwAAA==" },
+  "room-teak-bed": { w: 1600, h: 1204, blur: "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAAwAA4BaJZQCdAD0IY2sO0AA/ut1bDfOK7pb7q5vCp+c+tmsoaeQ5ewXMsvVW9r6xVvngf8oAAAA" },
+  "room-wide": { w: 1600, h: 1204, blur: "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoQAAwAA4BaJYgCdAD0PTZDiq4AAPyDFU7ejb632Z+CB4RNu8pqJxlu23OYbUkRYycjMOl16pIPvAAA" },
+  "room-window": { w: 1600, h: 1204, blur: "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAAwAA4BaJQBdgCGwe/HcSmAA/t63dTBc4BwbIXo1RKbmKAtJjgJVa9iWq7cyYQmckM8hWwAAAA==" },
+};

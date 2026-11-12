@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+/* ───────────────────────────── Design tokens ─────────────────────────────
+   Palette (as briefed). Two derived shades exist purely for accessibility:
+   --color-terracotta-deep : button fill, white text on it passes WCAG AA (5.3:1);
+                             plain #C8643B + white is only 3.9:1.
+   --color-pine-deep       : footer / dark panels.
+*/
+@theme {
+  /* Quiet coastal palette. Token names are historic: "pine" is now a deep slate navy, and
+     "terracotta" / "marigold" are a muted clay and a soft sand-gold. */
+  --color-cream: #f7f4ee;
+  --color-paper: #fdfcf9;
+  --color-sand: #ece7dd; /* cream, one step deeper, for alternating sections */
+  --color-pine: #2a3d50;
+  --color-pine-deep: #1c2a38;
+  --color-terracotta: #a68a68;
+  --color-terracotta-deep: #7d6446; /* button fill, white text passes WCAG AA */
+  --color-terracotta-press: #67513a;
+  --color-marigold: #cdb792;
+  --color-ink: #2a2724;
+  --color-muted: #6b665f;
+  --color-line: #e2dccf;
+
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgb(40 36 30 / 0.05), 0 10px 28px -16px rgb(40 36 30 / 0.2);
+  --shadow-lift: 0 2px 4px rgb(40 36 30 / 0.06), 0 22px 44px -20px rgb(40 36 30 / 0.3);
+  --radius-card: 0.75rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    overflow-x: clip;
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 60;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-marigold);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  ::selection { background: var(--color-marigold); color: var(--color-ink); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+
+@layer components {
+/* ───────────────────────────── Layout helpers ───────────────────────────── */
+.wrap { width: 100%; max-width: 76rem; margin-inline: auto; padding-inline: 1.25rem; }
+@media (min-width: 768px) { .wrap { padding-inline: 2.5rem; } }
+
+.section { padding-block: 5rem; position: relative; }
+@media (min-width: 1024px) { .section { padding-block: 8rem; } }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--color-terracotta-deep);
+}
+.eyebrow::before { content: ""; width: 2rem; height: 2px; background: currentColor; opacity: 0.7; }
+.on-dark .eyebrow { color: var(--color-marigold); }
+
+.h2 { font-size: clamp(2.25rem, 5.2vw, 3.9rem); font-weight: 500; color: var(--color-pine); margin-top: 1rem; }
+.on-dark .h2 { color: var(--color-cream); }
+.h2 em, .h1 em { font-style: italic; font-weight: 400; color: var(--color-terracotta-deep); }
+.on-dark .h2 em { color: var(--color-marigold); }
+.lead { color: var(--color-muted); font-size: 1.1875rem; max-width: 40rem; }
+.on-dark .lead { color: rgb(247 244 238 / 0.8); }
+
+/* ───────────────────────────── Buttons ───────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  min-height: 3.1rem; padding: 0.8rem 1.75rem; border-radius: 0.375rem;
+  font-weight: 500; letter-spacing: 0.03em; font-size: 0.95rem; line-height: 1.2; white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  cursor: pointer; border: 1.5px solid transparent;
+}
+.btn:active { transform: scale(0.97); }
+.btn-accent { background: var(--color-terracotta-deep); color: #fff; }
+.btn-accent:hover { background: var(--color-terracotta-press); }
+.btn-ghost { background: transparent; color: #fff; border-color: rgb(255 255 255 / 0.6); }
+.btn-ghost:hover { background: #fff; color: var(--color-pine); }
+.btn-outline { background: transparent; color: var(--color-pine); border-color: var(--color-pine); }
+.btn-outline:hover { background: var(--color-pine); color: #fff; }
+.btn-sm { min-height: 2.75rem; padding: 0.5rem 1.35rem; font-size: 0.9375rem; }
+
+/* ───────────────────────────── Cards ───────────────────────────── */
+.card { background: var(--color-paper); border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+.lift { transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease; }
+.lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); }
+
+/* Placeholder marker: any value still starting with "TODO:" in site.ts */
+.todo {
+  background: repeating-linear-gradient(135deg, rgb(205 183 146 / 0.3) 0 6px, rgb(205 183 146 / 0.14) 6px 12px);
+  border-bottom: 1.5px dashed var(--color-marigold);
+  padding: 0 0.3em; border-radius: 3px; color: inherit;
+}
+
+/* ───────────────────────────── Hero ───────────────────────────── */
+.hero-shade {
+  background:
+    linear-gradient(180deg, rgb(24 28 34 / 0.55) 0%, rgb(24 28 34 / 0.18) 28%, rgb(24 30 38 / 0.55) 62%, rgb(22 28 36 / 0.88) 100%),
+    linear-gradient(90deg, rgb(22 28 36 / 0.5) 0%, transparent 65%);
+}
+.h1 { font-size: clamp(2.9rem, 8.5vw, 6.5rem); font-weight: 400; color: #fff; letter-spacing: -0.025em; line-height: 1.02; }
+.h1 em { color: var(--color-marigold); }
+.hero-in { animation: rise 0.9s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0s); }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.hero-img { animation: settle 2.4s cubic-bezier(.2,.7,.2,1) both; filter: saturate(0.72) contrast(0.96) brightness(0.97); }
+@keyframes settle { from { transform: scale(1.08); } to { transform: scale(1); } }
+
+/* ───────────────────────────── Scroll reveal (CSS only, no JS) ─────────────────────────────
+   Browsers without scroll-driven animations simply show everything. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+    @keyframes reveal { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  }
+}
+
+/* ───────────────────────────── Gallery bento ───────────────────────────── */
+.bento { columns: 2; column-gap: 0.75rem; }
+@media (min-width: 768px) { .bento { columns: 3; column-gap: 1rem; } }
+@media (min-width: 1100px) { .bento { columns: 4; } }
+.bento button { position: relative; overflow: hidden; border-radius: 0.75rem; display: block; width: 100%; margin-bottom: 0.75rem; break-inside: avoid; cursor: zoom-in; background: var(--color-sand); }
+@media (min-width: 768px) { .bento button { margin-bottom: 1rem; } }
+.bento img { transition: transform 0.8s cubic-bezier(.2,.7,.2,1); }
+.bento button:hover img { transform: scale(1.06); }
+.bento button::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(180deg, transparent 60%, rgb(20 18 14 / 0.28)); opacity: 0; transition: opacity 0.3s;
+}
+.bento button:hover::after { opacity: 1; }
+.bento button { box-shadow: 0 1px 2px rgb(88 58 30 / 0.06); transition: box-shadow 0.4s; }
+.bento button:hover { box-shadow: 0 24px 48px -22px rgb(28 42 56 / 0.5); }
+.gal-glare {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.32) 50%, transparent 65%);
+  transform: translateX(-120%); transition: transform 0.9s cubic-bezier(.2,.7,.2,1);
+}
+.bento button:hover .gal-glare { transform: translateX(120%); }
+.gal-caption {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+  padding: 2rem 1rem 0.85rem; color: #fff; font-size: 0.9rem; font-weight: 600; text-align: left;
+  background: linear-gradient(180deg, transparent, rgb(14 22 20 / 0.72));
+  transform: translateY(101%); transition: transform 0.45s cubic-bezier(.2,.7,.2,1);
+}
+.bento button:hover .gal-caption, .bento button:focus-visible .gal-caption { transform: translateY(0); }
+@media (hover: none) { .gal-caption { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .gal-glare { display: none; } }
+
+/* ───────────────────────────── Form ───────────────────────────── */
+.field label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--color-pine); margin-bottom: 0.4rem; }
+.input {
+  width: 100%; min-height: 3.25rem; padding: 0.75rem 1rem; border-radius: 0.9rem;
+  background: var(--color-cream); border: 1.5px solid var(--color-line); color: var(--color-ink);
+  font: inherit; font-size: 1rem; transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.input::placeholder { color: #8a857d; }
+.input:hover { border-color: #cfc6b4; }
+.input:focus { outline: none; border-color: var(--color-pine); background: #fff; box-shadow: 0 0 0 4px rgb(31 77 69 / 0.14); }
+.input[aria-invalid="true"] { border-color: #b3261e; }
+.err { color: #b3261e; font-size: 0.8125rem; margin-top: 0.3rem; font-weight: 500; }
+
+/* Decorative arch shape for imagery */
+.arch { border-radius: 999px 999px 1.5rem 1.5rem; overflow: hidden; }
+
+/* Hide the scroll-linked bits cleanly on print */
+@media print { header, .no-print { display: none !important; } }
+}
