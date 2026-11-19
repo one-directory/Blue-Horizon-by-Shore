@@ -24,8 +24,13 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="wrap mt-12 border-t border-white/10 pt-6 text-sm text-cream/70">
-        &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
+      <div className="wrap mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-cream/70 md:flex-row md:items-center md:justify-between">
+        <span>&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</span>
+        <span className="flex items-center gap-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/makeinindia1.jpeg" alt="Make in India" className="h-10 w-auto rounded bg-white p-1" />
+          <span>Made with ❤️ One Directory</span>
+        </span>
       </div>
     </footer>
   );
